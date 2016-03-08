@@ -24,7 +24,8 @@ $(document).ready(function() {
 			//check = 1;
 		}
 
-		$(this).text(state == start ? reset : start);
+		var txt = $(this).text();
+		$(this).text(txt == start ? reset : start);
 
 		$(this).toggleClass("btn-primary btn-danger");
 		$(this).toggleClass("start-timer-button reset-timer-button");

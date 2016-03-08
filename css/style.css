@@ -1,0 +1,14 @@
+.container {
+	margin: 20px;
+}
+
+.timer {
+	margin: auto;
+	text-align: center;
+	font-size: 100px;
+}
+
+.timer-button {
+	margin-top: 20px;
+	text-align: center;
+}

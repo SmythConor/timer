@@ -106,7 +106,6 @@ function pauseTimer() {
 function resetTimer() {
 	isStarted = false;
 	firstClick = true;
-	console.log("Willi");
 
 	$(".timer").html(init);
 }

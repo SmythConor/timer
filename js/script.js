@@ -106,6 +106,13 @@ function pauseTimer() {
 function resetTimer() {
 	isStarted = false;
 	firstClick = true;
+	var state = $(".timer-button").hasClass("btn-primary");
+
+	if(state) {
+		$(".timer-button").text("Start");
+
+		$(".timer-button").toggleClass("btn-primary btn-success");
+	}
 
 	$(".timer").html(init);
 }

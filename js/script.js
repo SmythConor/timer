@@ -1,4 +1,8 @@
 var isStarted = false;
+var firstClick = true;
+var inter = 1;
+var startTime;
+var pauseTime;
 
 $(document).ready(function() {
 	var init = formatTime({
@@ -10,25 +14,26 @@ $(document).ready(function() {
 
 	$(".timer").html(init);
 
+	$(".reset-button").click(resetTimer);
+
 	$(".timer-button").click(function() {
 		var start = "Start";
-		var reset = "Reset";
+		var pause = "Pause";
 
 		/* Check state to decide what to do */
 		var state = isStarted
 
 		if(isStarted) {
-			resetTimer();
+			pauseTimer();
 		} else {
 			startTimer();
-			//check = 1;
 		}
 
 		var txt = $(this).text();
-		$(this).text(txt == start ? reset : start);
+		$(this).text(txt == start ? pause : start);
 
-		$(this).toggleClass("btn-success btn-danger");
-		$(this).toggleClass("start-timer-button reset-timer-button");
+		$(this).toggleClass("btn-success btn-primary");
+		$(this).toggleClass("start-timer-button pause-timer-button");
 });
 });
 
@@ -71,7 +76,10 @@ function getFormattedTime(time) {
 }
 
 function startTimer() {
-	started = Date.now();
+	if(firstClick) {
+		started = Date.now();
+		firstClick = false;
+	}
 
 	isStarted = true;
 }
@@ -89,10 +97,17 @@ setInterval(function() {
 
 		$(".timer").html(formattedTime);
 	}
-}, 1);
+}, inter);
+
+function pauseTimer() {
+	isStarted = false;
+}
 
 function resetTimer() {
 	isStarted = false;
+	firstClick = true;
+	console.log("Willi");
+
 	$(".timer").html(init);
 }
 

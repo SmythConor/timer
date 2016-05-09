@@ -19,3 +19,7 @@
 	margin-top: 20px;
 	text-align: center;
 }
+
+.btn:focus,.btn:active {
+	outline: none !important;
+}

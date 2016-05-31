@@ -34,26 +34,10 @@ $(document).ready(function() {
 
 		$(this).toggleClass("btn-success btn-primary");
 		$(this).toggleClass("start-timer-button pause-timer-button");
+	});
 });
-});
-
-String.prototype.format = function() {
-    var formatted = this;
-    for (var i = 0; i < arguments.length; i++) {
-        var regexp = new RegExp('\\{'+i+'\\}', 'gi');
-        formatted = formatted.replace(regexp, arguments[i]);
-    }
-    return formatted;
-};
 
 var started;
-
-var init = formatTime({
-	"ms": "00",
-	"sec": "00",
-	"mins": "00",
-	"hours": "00"
-});
 
 function hasStarted(state) {
 	var start = "Start";
@@ -119,7 +103,7 @@ function resetTimer() {
 
 function formatTime(time) {
 	var formattedTime = sprintf(
-		'%02d:%02d:%02d:%02d', time.hours, time.mins, time.sec, time.ms);
+		'%02d:%02d:%02d:%03d', time.hours, time.mins, time.sec, time.ms);
 
     return formattedTime;
 }

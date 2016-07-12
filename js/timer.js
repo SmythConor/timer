@@ -4,14 +4,14 @@ var inter = 1;
 var startTime;
 var pauseTime;
 
-$(document).ready(function() {
-	var init = formatTime({
-		"ms": "00",
-		"sec": "00",
-		"mins": "00",
-		"hours": "00"
-	});
+var init = formatTime({
+	"ms": "00",
+	"sec": "00",
+	"mins": "00",
+	"hours": "00"
+});
 
+$(document).ready(function() {
 	$(".timer").html(init);
 
 	$(".reset-button").click(resetTimer);
